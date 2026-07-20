@@ -469,6 +469,38 @@
             overflow-wrap: anywhere;
         }
 
+        .pub-authors-details {
+            margin-bottom: 0.12em;
+            color: var(--color-text-muted);
+            font-size: 0.94em;
+            line-height: 1.45;
+        }
+
+        .pub-authors-details summary {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.45em;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .pub-authors-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .authors-toggle {
+            color: var(--color-link);
+            font-size: 0.9em;
+            text-decoration: underline;
+            text-decoration-thickness: 0.06em;
+            text-underline-offset: 0.18em;
+        }
+
+        .pub-authors-full {
+            margin-top: 0.12em;
+        }
+
         .pub-venue {
             font-style: italic;
             color: var(--color-text);
@@ -1012,6 +1044,7 @@
             publications: [
                 {
                     title: "VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding",
+                    shortAuthors: "Xinhao Li*, Yuhan Zhu*, Xiangyu Zeng*, Yuhao Dong*, Haoning Wu*, Zhiqiu Zhang*, et al.",
                     authors: "Xinhao Li*, Yuhan Zhu*, Xiangyu Zeng*, Yuhao Dong*, Haoning Wu*, Zhiqiu Zhang*, Yuandong Yang, Changlian Ma, Qingyu Zhang, Yansong Shi, Xinyu Chen, Haoran Chen, Zizheng Huang, Jun Zhang, Kun Ouyang, Lin Sui, Ziang Yan, Yicheng Xu, Chenting Wang, Yinan He, Hongjie Zhang, Yi Wang, Yu Qiao, Yali Wang, Ziwei Liu, Kai Chen, Limin Wang",
                     venue: "arXiv, 2026 · Ranked <b>#2</b> on Hugging Face Daily Papers",
                     links: {
@@ -1272,12 +1305,22 @@
 
             const html = sortedPublications.map(paper => {
                 // Make Yuhan Zhu bold in authors
-                const authorsWithBold = paper.authors.replace(/Yuhan Zhu/g, '<strong>Yuhan Zhu</strong>');
+                const highlightAuthor = authors => authors.replace(/Yuhan Zhu/g, '<strong>Yuhan Zhu</strong>');
+                const authorsWithBold = highlightAuthor(paper.authors);
+                const authorsHtml = paper.shortAuthors
+                    ? `<details class="pub-authors-details">
+                        <summary>
+                            <span>${highlightAuthor(paper.shortAuthors)}</span>
+                            <span class="authors-toggle">full authors</span>
+                        </summary>
+                        <div class="pub-authors-full">${authorsWithBold}</div>
+                    </details>`
+                    : `<div class="pub-authors">${authorsWithBold}</div>`;
 
                 return `
                 <div class="pub-item">
                     <div class="pub-title">${paper.title}</div>
-                    <div class="pub-authors">${authorsWithBold}</div>
+                    ${authorsHtml}
                     <div class="pub-venue">${paper.venue}</div>
                     <div class="pub-links">
                         ${paper.links.pdf ? `<a href="${paper.links.pdf}" target="_blank" rel="noopener noreferrer">[pdf]</a>` : ''}
