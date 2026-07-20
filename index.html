@@ -527,6 +527,13 @@
             text-decoration: underline;
         }
 
+        .pub-link-disabled {
+            margin-right: 0.8em;
+            color: var(--color-text-muted);
+            font-size: 0.92em;
+            cursor: default;
+        }
+
         .timeline-item {
             margin-bottom: 0.9rem;
             padding-left: 1.4rem;
@@ -1001,6 +1008,10 @@
                     content: "🚀 We release <a href='https://arxiv.org/abs/2607.14935' target='_blank' rel='noopener noreferrer'>VideoChat3</a>, a fully open, efficient, and generalist video MLLM."
                 },
                 {
+                    date: "2026-07",
+                    content: "🚀 We release <a href='https://mcg-nju.github.io/TimeLens2/' target='_blank' rel='noopener noreferrer'>TimeLens2</a>, a generalist video temporal-grounding model with multimodal LLMs."
+                },
+                {
                     date: "2026-05",
                     content: "🎉 <a href='https://arxiv.org/abs/2509.24621' target='_blank'>FreeRet</a> and <a href='https://arxiv.org/abs/2601.23224' target='_blank'>Video-o3</a> have been accepted to <b>ICML 2026</b>!<br>🥳 I'm also honored to have been recognized as a <b>Top Reviewer</b> for the conference."
                 },
@@ -1048,6 +1059,7 @@
                     authors: "Yuhan Zhu*, Changlian Ma*, Xiangyu Zeng*, Xinhao Li*, Zhiqiu Zhang*, Songze Li, Jun Zhang, Tianxiang Jiang, Yuandong Yang, Ziang Yan, Zikang Wang, Xinyu Chen, Haoran Chen, Shaowei Zhang, Limin Wang",
                     venue: "Technical Report, 2026",
                     links: {
+                        pdfComingSoon: true,
                         code: "https://github.com/MCG-NJU/TimeLens2",
                         modelData: "https://huggingface.co/collections/MCG-NJU/timelens2",
                         project: "https://mcg-nju.github.io/TimeLens2/"
@@ -1335,6 +1347,7 @@
                     <div class="pub-venue">${paper.venue}</div>
                     <div class="pub-links">
                         ${paper.links.pdf ? `<a href="${paper.links.pdf}" target="_blank" rel="noopener noreferrer">[pdf]</a>` : ''}
+                        ${paper.links.pdfComingSoon ? `<span class="pub-link-disabled">[pdf] (coming soon)</span>` : ''}
                         ${paper.links.code ? `<a href="${paper.links.code}" target="_blank" rel="noopener noreferrer">[code]</a>` : ''}
                         ${paper.links.modelData ? `<a href="${paper.links.modelData}" target="_blank" rel="noopener noreferrer">[model&amp;data]</a>` : ''}
                         ${paper.links.project ? `<a href="${paper.links.project}" target="_blank" rel="noopener noreferrer">[project]</a>` : ''}
