@@ -509,6 +509,10 @@
             line-height: 1.45;
         }
 
+        .hf-daily-rank {
+            color: #c25a00;
+        }
+
         .pub-links {
             margin-top: 0.12em;
         }
@@ -623,7 +627,7 @@
 
         /* Awards */
         .award-item {
-            padding: 0.28rem 0;
+            padding: 0.16rem 0;
             display: flex;
             justify-content: space-between;
             align-items: baseline;
@@ -646,7 +650,7 @@
 
         /* Talks & Service */
         .talk-item, .service-item {
-            padding: 0.28rem 0;
+            padding: 0.16rem 0;
             display: flex;
             justify-content: space-between;
             align-items: baseline;
@@ -665,6 +669,11 @@
             font-size: 0.95em;
             margin-left: 1em;
             white-space: nowrap;
+        }
+
+        #awards .section-title,
+        #talks .section-title {
+            margin-bottom: 0.5rem;
         }
 
         /* Responsive design */
@@ -898,6 +907,15 @@
                                 <span class="email-value">yuhan.zhu[at]smail.nju.edu.cn</span>
                             </a>
                         </div>
+                        <div class="contact-email">
+                            <div class="email-chip" aria-label="WeChat ID">
+                                <svg class="email-symbol" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+                                    <path d="M8 10h.01M12 10h.01M16 10h.01"></path>
+                                </svg>
+                                <span class="email-value">WeChat: yuhan_zhu_</span>
+                            </div>
+                        </div>
                         <div class="social-links">
                             <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer" class="social-link">
                                 <div class="social-icon" style="background-image: url('https://scholar.google.com/favicon.ico');"></div>
@@ -997,7 +1015,7 @@
             about: {
                 bio: [
                     'I am a first-year Ph.D. student at <a href="https://mcg.nju.edu.cn/en/index.html" target="_blank" rel="noopener noreferrer">MCG Group</a>, Nanjing University, supervised by <a href="https://wanglimin.github.io/" target="_blank" rel="noopener noreferrer">Prof. Limin Wang</a>. I\'m also a research intern at <a href="https://www.shlab.org.cn" target="_blank" rel="noopener noreferrer">Shanghai AI Laboratory</a>. Before my Ph.D. journey, I worked as a research associate at <a href="https://www.ntu.edu.sg/s-lab" target="_blank" rel="noopener noreferrer">S-Lab</a>, Nanyang Technological University, and as an intern at vivo AI Lab.',
-                    'My research interests center on long-form and online video understanding, as well as video-language foundation models. Previously, I have also explored parameter-efficient fine-tuning, test-time adaptation, and video frame interpolation.',
+                    'My research focuses on developing video-language foundation models for long-form and online video understanding. Previously, I have also explored parameter-efficient fine-tuning, test-time adaptation, and video frame interpolation.',
                     '<span class="availability-note">I am actively looking for research internship opportunities related to video understanding foundation models.</span>',
                     '🤗 If you are interested in my research, please feel free to contact me.'
                 ]
@@ -1025,7 +1043,7 @@
                 },
                 {
                     date: "2025-06",
-                    content: "🥳 I officially begin my Ph.D. journey at Nanjing University & Shanghai AI Laboratory!"
+                    content: "🥳 I officially begin my Ph.D. journey at Nanjing University!"
                 },
                 {
                     date: "2024-09",
@@ -1053,7 +1071,7 @@
                     title: "TimeLens2: Generalist Video Temporal Grounding with Multimodal LLMs",
                     shortAuthors: "Yuhan Zhu*, Changlian Ma*, Xiangyu Zeng*, Xinhao Li*, Zhiqiu Zhang*, et al.",
                     authors: "Yuhan Zhu*, Changlian Ma*, Xiangyu Zeng*, Xinhao Li*, Zhiqiu Zhang*, Songze Li, Jun Zhang, Tianxiang Jiang, Yuandong Yang, Ziang Yan, Zikang Wang, Xinyu Chen, Haoran Chen, Shaowei Zhang, Limin Wang",
-                    venue: "Technical Report, 2026 · <i>Ranked</i> <b>#2</b> <i>on Hugging Face Daily Papers</i>",
+                    venue: "Technical Report, 2026 · <span class=\"hf-daily-rank\"><i>Ranked</i> <b>#2</b> <i>on Hugging Face Daily Papers</i></span>",
                     links: {
                         pdf: "https://arxiv.org/abs/2607.17423",
                         code: "https://github.com/MCG-NJU/TimeLens2",
@@ -1065,7 +1083,7 @@
                     title: "VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding",
                     shortAuthors: "Xinhao Li*, Yuhan Zhu*, Xiangyu Zeng*, Yuhao Dong*, Haoning Wu*, Zhiqiu Zhang*, et al.",
                     authors: "Xinhao Li*, Yuhan Zhu*, Xiangyu Zeng*, Yuhao Dong*, Haoning Wu*, Zhiqiu Zhang*, Yuandong Yang, Changlian Ma, Qingyu Zhang, Yansong Shi, Xinyu Chen, Haoran Chen, Zizheng Huang, Jun Zhang, Kun Ouyang, Lin Sui, Ziang Yan, Yicheng Xu, Chenting Wang, Yinan He, Hongjie Zhang, Yi Wang, Yu Qiao, Yali Wang, Ziwei Liu, Kai Chen, Limin Wang",
-                    venue: "Technical Report, 2026 · Ranked <b>#2</b> on Hugging Face Daily Papers",
+                    venue: "Technical Report, 2026 · <span class=\"hf-daily-rank\"><i>Ranked</i> <b>#2</b> <i>on Hugging Face Daily Papers</i></span>",
                     links: {
                         pdf: "https://arxiv.org/pdf/2607.14935",
                         code: "https://github.com/MCG-NJU/VideoChat3",
