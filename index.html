@@ -233,17 +233,24 @@
             border-radius: 999px;
             text-decoration: none;
             color: var(--color-text);
+            font-family: inherit;
             font-size: 0.88em;
             background: var(--color-surface);
             border: 1px solid var(--color-border);
             box-shadow: 0 1px 2px rgba(32, 38, 36, 0.04);
             white-space: nowrap;
+            cursor: pointer;
         }
 
         .email-chip:hover {
             border-color: rgba(47, 111, 100, 0.32);
             background: #fbfdfc;
             color: var(--color-accent-hover);
+        }
+
+        .email-chip:focus-visible {
+            outline: 2px solid rgba(47, 111, 100, 0.45);
+            outline-offset: 3px;
         }
 
         .email-symbol {
@@ -899,22 +906,22 @@
                     </div>
                     <div class="contact-info">
                         <div class="contact-email">
-                            <a class="email-chip" id="profile-email-link" href="mailto:yuhan.zhu@smail.nju.edu.cn" aria-label="Email">
+                            <button class="email-chip" id="profile-email-copy" type="button" aria-label="Copy email address">
                                 <svg class="email-symbol" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                                 </svg>
-                                <span class="email-value">yuhan.zhu[at]smail.nju.edu.cn</span>
-                            </a>
+                                <span class="email-value" id="profile-email-value">yuhan.zhu[at]smail.nju.edu.cn</span>
+                            </button>
                         </div>
                         <div class="contact-email">
-                            <div class="email-chip" aria-label="WeChat ID">
+                            <button class="email-chip" id="profile-wechat-copy" type="button" aria-label="Copy WeChat ID">
                                 <svg class="email-symbol" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
                                     <path d="M8 10h.01M12 10h.01M16 10h.01"></path>
                                 </svg>
-                                <span class="email-value">WeChat: yuhan_zhu_</span>
-                            </div>
+                                <span class="email-value" id="profile-wechat-value">WeChat: yuhan_zhu_</span>
+                            </button>
                         </div>
                         <div class="social-links">
                             <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer" class="social-link">
@@ -1009,6 +1016,7 @@
             personalInfo: {
                 name: "Yuhan Zhu 朱宇涵",
                 email: "yuhan.zhu[at]smail.nju.edu.cn",
+                wechat: "yuhan_zhu_",
                 googleScholar: "https://scholar.google.com/citations?user=ydgR3LgAAAAJ&hl=en",
                 github: "https://github.com/zyuhan1999",
             },
@@ -1447,11 +1455,54 @@
             document.querySelector('.name-english').textContent = englishName;
             document.querySelector('.name-chinese').textContent = chineseName;
             const emailRaw = siteData.personalInfo.email;
-            document.querySelector('.contact-email .email-value').textContent = emailRaw;
-            document.getElementById('profile-email-link').href =
-                'mailto:' + emailRaw.replace(/\s*\[at\]\s*/gi, '@');
+            const emailAddress = emailRaw.replace(/\s*\[at\]\s*/gi, '@');
+            const emailButton = document.getElementById('profile-email-copy');
+            emailButton.dataset.copyText = emailAddress;
+            emailButton.dataset.defaultText = emailRaw;
+            document.getElementById('profile-email-value').textContent = emailRaw;
+
+            const wechatId = siteData.personalInfo.wechat;
+            const wechatButton = document.getElementById('profile-wechat-copy');
+            wechatButton.dataset.copyText = wechatId;
+            wechatButton.dataset.defaultText = `WeChat: ${wechatId}`;
+            document.getElementById('profile-wechat-value').textContent = wechatButton.dataset.defaultText;
             document.querySelector('a[href*="scholar.google.com"]').href = siteData.personalInfo.googleScholar;
             document.querySelector('a[href*="github.com"]').href = siteData.personalInfo.github;
+        }
+
+        async function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return;
+            }
+
+            const input = document.createElement('textarea');
+            input.value = text;
+            input.style.position = 'fixed';
+            input.style.opacity = '0';
+            document.body.appendChild(input);
+            input.select();
+            const copied = document.execCommand('copy');
+            input.remove();
+            if (!copied) throw new Error('Copy failed');
+        }
+
+        function setupContactCopyButtons() {
+            document.querySelectorAll('.email-chip[data-copy-text]').forEach(button => {
+                button.addEventListener('click', async () => {
+                    const value = button.querySelector('.email-value');
+                    try {
+                        await copyToClipboard(button.dataset.copyText);
+                        value.textContent = 'Copied!';
+                    } catch (error) {
+                        value.textContent = 'Copy failed';
+                    }
+
+                    window.setTimeout(() => {
+                        value.textContent = button.dataset.defaultText;
+                    }, 700);
+                });
+            });
         }
 
         // Function to update about section
@@ -1490,6 +1541,7 @@
         async function init() {
             try {
                 updatePersonalInfo();
+                setupContactCopyButtons();
                 updateAbout();
                 renderNews();
                 renderPublications();
