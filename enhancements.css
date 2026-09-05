@@ -1,14 +1,128 @@
-/* Requested additions layered on top of the original site design. */
+/* Compact layout layered on top of the original site design. */
+
+body {
+    line-height: 1.45;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+header {
+    padding: 1.4rem 0 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.header-content {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 1rem;
+}
+
+.profile-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 14px;
+}
+
+.profile-info {
+    gap: 0.5rem;
+}
+
+.identity-cluster {
+    padding: 0.55rem 0.75rem;
+}
+
+.contact-info {
+    flex-wrap: wrap;
+}
+
+section {
+    margin-bottom: 1.35rem;
+}
+
+.section-title {
+    margin-bottom: 0.5rem;
+}
+
+.about-content {
+    line-height: 1.45;
+}
+
+.about-content p {
+    margin-bottom: 0.35em;
+}
+
+.pub-item {
+    padding: 0.3rem 0;
+}
+
+.pub-item + .pub-item {
+    margin-top: 0.1rem;
+}
+
+.pub-title {
+    line-height: 1.3;
+    margin-bottom: 0.1em;
+}
+
+.pub-authors,
+.pub-authors-details,
+.pub-venue {
+    line-height: 1.3;
+    margin-bottom: 0.05em;
+}
+
+.timeline-item {
+    margin-bottom: 0.55rem;
+}
+
+.timeline-header,
+.timeline-org {
+    margin-bottom: 0;
+}
+
+.timeline-org,
+.timeline-description {
+    line-height: 1.35;
+}
+
+.award-item,
+.talk-item,
+.service-item {
+    padding: 0.1rem 0;
+    line-height: 1.35;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.footer {
+    margin-top: 1.35rem;
+    padding: 0.8rem 0 1rem;
+}
+
+.footer-content {
+    gap: 0.4rem;
+}
 
 .news-slider {
-    max-height: 14.5rem;
+    max-height: 12rem;
     overflow-y: auto;
-    padding: 0.72rem 0.9rem;
+    padding: 0.45rem 0.75rem;
     background: rgba(255, 255, 255, 0.66);
     border: 1px solid var(--color-border);
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(32, 38, 36, 0.04);
     scrollbar-gutter: stable;
+}
+
+.news-item + .news-item {
+    margin-top: 0.12rem;
+}
+
+.news-content {
+    line-height: 1.35;
 }
 
 .news-slider::-webkit-scrollbar {
@@ -30,18 +144,18 @@
 
 .pub-year-group {
     display: grid;
-    grid-template-columns: 4rem minmax(0, 1fr);
-    gap: 1.05rem;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 0.75rem;
 }
 
 .pub-year-group + .pub-year-group {
-    margin-top: 1.65rem;
+    margin-top: 1rem;
 }
 
 .pub-year {
     height: fit-content;
     margin: 0;
-    padding-top: 0.5rem;
+    padding-top: 0.4rem;
     color: var(--color-accent);
     font-size: 0.78rem;
     font-weight: 600;
@@ -58,8 +172,9 @@
 .pub-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.28rem 0.7rem;
-    margin-top: 0.22rem;
+    gap: 0.15rem 0.7rem;
+    margin-top: 0.05rem;
+    line-height: 1.3;
 }
 
 .pub-links a,
@@ -96,6 +211,66 @@
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 1rem 0 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .header-content {
+        grid-template-columns: 72px minmax(0, 1fr);
+        align-items: start;
+        gap: 0.75rem;
+        text-align: left;
+    }
+
+    .profile-photo {
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+    }
+
+    .profile-info {
+        width: 100%;
+    }
+
+    .identity-cluster {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        text-align: left;
+    }
+
+    .identity-cluster-main {
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    .identity-cluster .name {
+        font-size: 1.6rem;
+    }
+
+    .identity-affiliation,
+    .contact-info,
+    .contact-email,
+    .social-links {
+        justify-content: flex-start;
+    }
+
+    .social-links {
+        flex-basis: 100%;
+    }
+
+    section {
+        margin-bottom: 1.15rem;
+    }
+
+    .news-item {
+        grid-template-columns: 5.4rem minmax(0, 1fr);
+        gap: 0.5rem;
+        padding: 0.2rem 0;
+    }
+
     /* Preserve the original header while preventing the affiliation row from
        reserving an oversized flex height on narrow screens. */
     .identity-affiliation {
@@ -103,7 +278,7 @@
     }
 
     .news-slider {
-        max-height: 16rem;
+        max-height: 12rem;
         padding: 0.55rem 0.72rem;
     }
 
@@ -122,5 +297,47 @@
 
     .pub-list {
         border-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        grid-template-columns: 1fr;
+        justify-items: start;
+        position: relative;
+    }
+
+    .profile-photo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 60px;
+    }
+
+    .identity-cluster {
+        min-height: 60px;
+        padding-left: 72px;
+    }
+
+    .identity-cluster .name {
+        font-size: 1.4rem;
+    }
+
+    .affiliation-chip {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        font-size: 0.85em;
+    }
+
+    .email-chip,
+    .social-link {
+        min-height: 32px;
+    }
+
+    .news-item {
+        grid-template-columns: 1fr;
+        gap: 0.05rem;
     }
 }
