@@ -966,8 +966,8 @@
 
         <!-- Publications Section -->
         <section id="publications">
-            <h2 class="section-title">Publications <span class="title-aside"><em>(* denotes co-first authors)</em></span></h2>
-            <div id="publications-content">
+            <h2 class="section-title">Selected Publications <span class="title-aside"><em>(* denotes co-first authors)</em></span></h2>
+            <div id="publications-content" class="pub-list">
                 <!-- Publications will be populated by JavaScript -->
             </div>
         </section>
@@ -1029,6 +1029,10 @@
                 ]
             },
             news: [
+                {
+                    date: "2026-11",
+                    content: "🚀 We released <a href='https://arxiv.org/abs/2611.30235' target='_blank' rel='noopener noreferrer'>PixelOne</a> for single-pass GUI grounding."
+                },
                 {
                     date: "2026-10",
                     content: "🚀 We release <a href='https://mcg-nju.github.io/VideoJev/' target='_blank' rel='noopener noreferrer'>VideoJev</a>, a System One model for video understanding and interaction.<br>🚀 We release <a href='https://github.com/Fr0zenCrane/MJev-Spatial' target='_blank' rel='noopener noreferrer'>MJev-Spatial</a>, a System One model for spatial intelligence.<br>🚀 We release <a href='https://mcg-nju.github.io/OneStreamer/' target='_blank' rel='noopener noreferrer'>OneStreamer</a> for streaming video interaction."
@@ -1101,31 +1105,6 @@
                     }
                 },
                 {
-                    title: "MJev-Spatial: System One Spatial Intelligence via Native Attention Matching",
-                    year: 2026,
-                    shortAuthors: "Luozheng Qin*, Yuhan Zhu*, Changhai Zhou*, Qian Qiao, Jun Gao, Yuhua Zhou, et al.",
-                    authors: "Luozheng Qin*, Yuhan Zhu*, Changhai Zhou*, Qian Qiao, Jun Gao, Yuhua Zhou, Harry Zhang, Xiangyu Zeng, Yuxuan Liu, Kaijie Chen, Andrew Chen, Pony Ma",
-                    venue: "Technical Report, 2026 · <a class=\"hf-daily-rank\" href=\"https://huggingface.co/papers/2610.22276\" target=\"_blank\" rel=\"noopener noreferrer\"><i>Ranked</i> <b>#1</b> <i>on Hugging Face Daily Papers</i></a>",
-                    links: {
-                        pdf: "https://arxiv.org/pdf/2610.22276",
-                        code: "https://github.com/Fr0zenCrane/MJev-Spatial",
-                        model: "https://huggingface.co/mindlab-research/MJev-Spatial-4B"
-                    }
-                },
-                {
-                    title: "Data-Centric Recursive Self-Improvement for Navigation via Policy-Synchronized Language-Action Dual Bootstrapping",
-                    year: 2026,
-                    shortAuthors: "Songze Li, Haoming Gu, Ziyang Gong, Zhitong Wang, Gengze Zhou, Zun Wang, Yuhan Zhu, et al.",
-                    authors: "Songze Li, Haoming Gu, Ziyang Gong, Zhitong Wang, Gengze Zhou, Zun Wang, Yuhan Zhu, Tianxiang Jiang, Juanzi Li, Qi Wu, Weinan Zhang, Yu Qiao, Wenwei Zhang, Yi Wang",
-                    venue: "arXiv preprint, 2026",
-                    links: {
-                        pdf: "https://arxiv.org/pdf/2610.15782",
-                        code: "https://github.com/OpenGVLab/RSI-Nav",
-                        model: "https://huggingface.co/SongzeLi/RSI-Nav_model",
-                        dataset: "https://huggingface.co/datasets/SongzeLi/RSI-Nav_data"
-                    }
-                },
-                {
                     title: "OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction",
                     year: 2026,
                     shortAuthors: "Xiangyu Zeng*, Yuandong Yang*, Zhiqiu Zhang*, Yuhan Zhu*, Xinhao Li*, Qingyi Si*, et al.",
@@ -1137,17 +1116,6 @@
                         project: "https://mcg-nju.github.io/OneStreamer/",
                         model: "https://huggingface.co/MCG-NJU/OneStreamer-4B",
                         dataset: "https://huggingface.co/datasets/MCG-NJU/OneStreamer-1M"
-                    }
-                },
-                {
-                    title: "Benchmarking and Enhancing Skill-Level Memory for Partially Observable Robotic Manipulation",
-                    year: 2026,
-                    authors: "Yansong Shi, Jiange Yang, Xijie Yang, Shaowei Zhang, Yuhan Zhu, Tao Lu, Limin Wang",
-                    venue: "arXiv preprint, 2026",
-                    links: {
-                        pdf: "https://arxiv.org/pdf/2609.38886v1",
-                        repository: "https://github.com/nanamma/HIDE-SEEK",
-                        project: "https://nanamma.github.io/HIDE-SEEK/"
                     }
                 },
                 {
@@ -1253,17 +1221,6 @@
                     }
                 },
                 {
-                    title: "Reasoning Guided Embeddings: Leveraging MLLM Reasoning for Improved Multimodal Retrieval",
-                    year: 2025,
-                    authors: "Chunxu Liu, Jiyuan Yang, Ruopeng Gao, Yuhan Zhu, Feng Zhu, Rui Zhao, Limin Wang",
-                    venue: "arXiv preprint, 2025",
-                    links: {
-                        pdf: "https://arxiv.org/pdf/2511.16150",
-                        code: "https://github.com/MCG-NJU/RGE",
-                        model: "https://huggingface.co/MCG-NJU/RGE"
-                    }
-                },
-                {
                     title: "AWT: Transferring Vision-Language Models via Augmentation, Weighting, and Transportation",
                     year: 2024,
                     authors: "Yuhan Zhu, Yuyang Ji, Zhiyu Zhao, Gangshan Wu, Limin Wang",
@@ -1271,27 +1228,6 @@
                     links: {
                         pdf: "https://arxiv.org/pdf/2407.04603",
                         code: "https://github.com/MCG-NJU/AWT",
-                    }
-                },
-                {
-                    title: "Progressive visual prompt learning with contrastive feature re-formation",
-                    year: 2024,
-                    authors: "Chen Xu, Yuhan Zhu, Haocheng Shen, Boheng Chen, Yixuan Liao, Xiaoxin Chen, Limin Wang",
-                    venue: "International Journal of Computer Vision (<b>IJCV</b>), IF=9.3 (2024)",
-                    links: {
-                        pdf: "https://arxiv.org/pdf/2304.08386",
-                        code: "https://github.com/MCG-NJU/ProVP",
-                    }
-                },
-                {
-                    title: "Zeroi2v: Zero-cost adaptation of pre-trained transformers from image to video",
-                    year: 2024,
-                    authors: "Xinhao Li, Yuhan Zhu, Limin Wang",
-                    venue: "European Conference on Computer Vision (<b>ECCV</b>), 2024",
-                    links: {
-                        pdf: "https://arxiv.org/pdf/2310.01324",
-                        code: "https://github.com/MCG-NJU/ZeroI2V",
-                        model: "https://huggingface.co/MCG-NJU/ZeroI2V"
                     }
                 },
                 {
@@ -1304,22 +1240,12 @@
                     }
                 },
                 {
-                    title: "DPL: Decoupled Prompt Learning for Vision-Language Models",
-                    year: 2024,
-                    authors: "Chen Xu*, Yuhan Zhu*, Guozhen Zhang, Haocheng Shen, Yixuan Liao, Xiaoxin Chen, Gangshan Wu, Limin Wang",
-                    venue: "arXiv, 2024",
-                    links: {
-                        pdf: "https://arxiv.org/pdf/2308.10061"
-                    }
-                },
-                {
                     title: "Dual DETRs for Multi-Label Temporal Action Detection",
                     year: 2024,
                     authors: "Yuhan Zhu*, Guozhen Zhang*, Jing Tan, Gangshan Wu, Limin Wang",
                     venue: "IEEE Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2024",
                     links: {
-                        pdf: "https://arxiv.org/pdf/2404.00653",
-                        code: "https://github.com/MCG-NJU/DualDETR"
+                        pdf: "https://arxiv.org/pdf/2404.00653"
                     }
                 },
                 {
@@ -1471,14 +1397,10 @@
                 return years ? Number(years[years.length - 1]) : 0;
             };
             const sortedPublications = [...siteData.publications].sort((a, b) => getPublicationYear(b) - getPublicationYear(a));
-            const groupedPublications = sortedPublications.reduce((groups, paper) => {
-                const year = getPublicationYear(paper);
-                if (!groups.has(year)) groups.set(year, []);
-                groups.get(year).push(paper);
-                return groups;
-            }, new Map());
 
             const renderPaper = paper => {
+                const codeUrl = paper.links.code || paper.links.repository;
+                const githubRepo = codeUrl?.match(/^https:\/\/github\.com\/([\w.-]+\/[\w.-]+)(?:\/|$)/i)?.[1];
                 const highlightAuthor = authors => authors.replace(/Yuhan Zhu/g, '<strong>Yuhan Zhu</strong>');
                 const authorsWithBold = highlightAuthor(paper.authors);
                 const authorsHtml = paper.shortAuthors
@@ -1493,14 +1415,18 @@
 
                 return `
                 <div class="pub-item">
-                    <div class="pub-title">${paper.title}</div>
+                    <div class="pub-heading">
+                        <span class="pub-title">${paper.title}</span>
+                        ${githubRepo ? `<a class="pub-github" href="${codeUrl}" target="_blank" rel="noopener noreferrer" aria-label="View ${githubRepo} on GitHub">
+                            <img src="https://img.shields.io/github/stars/${githubRepo}?style=social&amp;logo=github" alt="GitHub stars" height="20">
+                        </a>` : ''}
+                    </div>
                     ${authorsHtml}
                     <div class="pub-venue">${paper.venue}</div>
                     <div class="pub-links">
                         ${paper.links.pdf ? `<a href="${paper.links.pdf}" target="_blank" rel="noopener noreferrer">PDF</a>` : ''}
                         ${paper.links.pdfComingSoon ? `<span class="pub-link-disabled">PDF coming soon</span>` : ''}
-                        ${paper.links.code ? `<a href="${paper.links.code}" target="_blank" rel="noopener noreferrer">Code</a>` : ''}
-                        ${paper.links.repository ? `<a href="${paper.links.repository}" target="_blank" rel="noopener noreferrer">GitHub</a>` : ''}
+                        ${codeUrl && !githubRepo ? `<a href="${codeUrl}" target="_blank" rel="noopener noreferrer">Code</a>` : ''}
                         ${paper.links.project ? `<a href="${paper.links.project}" target="_blank" rel="noopener noreferrer">Project</a>` : ''}
                         ${paper.links.modelData ? `<a href="${paper.links.modelData}" target="_blank" rel="noopener noreferrer">Model &amp; data</a>` : ''}
                         ${paper.links.dataset ? `<a href="${paper.links.dataset}" target="_blank" rel="noopener noreferrer">Dataset</a>` : ''}
@@ -1511,16 +1437,7 @@
                 </div>`;
             };
 
-            const html = [...groupedPublications.entries()].map(([year, papers]) => `
-                <div class="pub-year-group" aria-labelledby="publications-${year}">
-                    <h3 class="pub-year" id="publications-${year}">${year}</h3>
-                    <div class="pub-list">
-                        ${papers.map(renderPaper).join('')}
-                    </div>
-                </div>
-            `).join('');
-
-            container.innerHTML = html;
+            container.innerHTML = sortedPublications.map(renderPaper).join('');
         }
 
         // Function to render awards
